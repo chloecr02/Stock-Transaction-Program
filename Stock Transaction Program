@@ -1,0 +1,63 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+int main()
+{
+    //Welcome User to stock the program
+    cout << "\tWelcome to Stock Transaction Program\n\n";
+    
+    // add int variable: cant be decimal
+    // number with no decimal = int ( share bought, share sold )
+    // double ( percentage, decimals... )
+    
+    // Declare userName, stockName, stockSymbol
+    string userName, stockName, stockSymbol;
+    // Declare sharebBought, shareSold
+    int shareBought, shareSold;
+    // Declare purchasePrice, sellingPrice, buyCommisionRate, sellCommissionRate
+    double purchasePrice, sellingPrice, buyCommissionRate, sellCommissionRate;
+    
+    // ask the user for and user will enter: userName, stockName, stockSymbol,shareBought, shareSold, purchasePrice, sellingPrice, buyCommisionRate, sellCommissionrate
+    cout << "Welcome! Enter your name to start: ";
+    cin >> userName ;
+    cout << "\nHi " << userName << "! We're happy to have you here!\n\n";
+    cout << "Enter the name of the stock: ";
+    cin >> stockName ;
+    cout << "Enter the stock symbol (ex: for Apple Inc., it's AAPL): ";
+    cin >> stockSymbol ;
+    cout << "Enter the number of stocks you bought for " << stockSymbol << ": ";
+    cin >> shareBought ;
+    cout << "Enter the price of the " << stockSymbol << " stock per unit when you first bought it: ";
+    cin >> purchasePrice ;
+    cout << "Enter the commission rate at which you bought the " << stockSymbol << " stock: ";
+    cin >> buyCommissionRate ;
+    cout << "\nEnter the number of " << stockSymbol << " stocks you want to sell: ";
+    cin >> shareSold ;
+    cout << "Enter the price per unit at which you want to sell " << stockSymbol << " stock: ";
+    cin >> sellingPrice ;
+    cout << "Enter the commission rate at which you want to sell the " << stockSymbol << " stock: ";
+    cin >> sellCommissionRate ;
+    
+    // calculate amountPaid, buyComission, amountSold, sellCommission, Profit`
+    double amountPaid = purchasePrice * shareBought;
+    double buyComission = amountPaid * ( buyCommissionRate / 100 );
+    double amountSold = sellingPrice * shareSold;
+    double sellCommission = amountSold * ( sellCommissionRate / 100 );
+    double Profit = ( amountSold - sellCommission ) - ( amountPaid + buyComission );
+    
+    cout << "\nHere are the details of the transaction\n\n";
+    
+    // display results with 2 decimals: amountPaid, buyComission, amountSold, sellComission, Profit
+    cout << setprecision(2) << fixed;
+    cout << "  Purchase Price:      $ " << amountPaid << endl;
+    cout << "  Purchase Commission: $ " << buyComission << endl;
+    cout << "  Sale Price:          $ " << amountSold << endl;
+    cout << "  Sale Commission:     $ " << sellCommission << endl;
+    cout << "  Profit:              $ " << Profit << "\n\n";
+    cout << "Thank you for participating " << userName << "!\n\n";
+
+    cout << "PROGRAMMER: Chloé Craan\n" ;
+  
+    return 0;
